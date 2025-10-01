@@ -1,13 +1,15 @@
 import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
-
 
 function Update() {
     const [title, setTitle] = useState("");
     const [content, setContent] = useState("");
 
-    const { id } = useParams();
+    const path = window.location.pathname;
+    const parts = path.split('/');
+    const postId = parts[3];
+    const id  = postId
 
+    console.log(postId);
 
     useEffect(() => {
         const fetchPost = async () => {

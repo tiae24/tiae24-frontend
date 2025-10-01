@@ -1,6 +1,14 @@
 import React, { useState, useEffect } from 'react';
 
 function All() {
+
+    let path = window.location.pathname;
+
+    const base = "/tiae24-frontend";
+    if (path.startsWith(base)) {
+        path = path.slice(base.length);
+    }
+
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(true);
 
@@ -32,7 +40,7 @@ function All() {
         const post = data[i];
         result.push(
             <li key={post._id}>
-                <a href={`/tiae24-frontend/update/${post._id}`}><strong>{post.title}</strong>: {post.content}</a>
+                <a href={`${base}/update/${post._id}`}><strong>{post.title}</strong>: {post.content}</a>
             </li>
         );
     }
