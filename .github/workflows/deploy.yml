@@ -18,6 +18,10 @@ jobs:
         node-version: 22
     - name: Install dependencies
       run: npm install
+    - name: Build Project
+      run: npm run build
     - name: Deploy to Github pages
       uses: peaceiris/actions-gh-pages@v3
-      with
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: dist
