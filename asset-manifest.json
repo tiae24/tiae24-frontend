@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/tiae24-frontend/static/css/main.9bf40572.css",
-    "main.js": "/tiae24-frontend/static/js/main.cad09a63.js",
+    "main.js": "/tiae24-frontend/static/js/main.5cdb1ba6.js",
     "static/js/488.b8a15b11.chunk.js": "/tiae24-frontend/static/js/488.b8a15b11.chunk.js",
     "index.html": "/tiae24-frontend/index.html",
     "main.9bf40572.css.map": "/tiae24-frontend/static/css/main.9bf40572.css.map",
-    "main.cad09a63.js.map": "/tiae24-frontend/static/js/main.cad09a63.js.map",
+    "main.5cdb1ba6.js.map": "/tiae24-frontend/static/js/main.5cdb1ba6.js.map",
     "488.b8a15b11.chunk.js.map": "/tiae24-frontend/static/js/488.b8a15b11.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.9bf40572.css",
-    "static/js/main.cad09a63.js"
+    "static/js/main.5cdb1ba6.js"
   ]
 }
