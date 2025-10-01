@@ -11,16 +11,16 @@ function Update() {
 
     console.log(postId);
 
-
-    const fetchPost = async () => {
-        const res = await fetch(`https://jsramverk-tiae24-b7ehgnarare5h5dg.northeurope-01.azurewebsites.net/${id}`);
-        const data = await res.json();
-        setTitle(data.doc.title);
-        setContent(data.doc.content);
-        console.log(data);
-    };
-
     useEffect(() => {
+        const fetchPost = async () => {
+            const res = await fetch(`https://jsramverk-tiae24-b7ehgnarare5h5dg.northeurope-01.azurewebsites.net/${id}`);
+            const data = await res.json();
+            setTitle(data.doc.title);
+            setContent(data.doc.content);
+            console.log(data);
+        };
+
+    
         fetchPost();
     }, [id]);
 
