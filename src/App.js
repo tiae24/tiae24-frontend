@@ -5,8 +5,14 @@ import All from './routes/all.js';
 import Update from './routes/update.js';
 
 
+
 function App() {
-  const path = window.location.pathname;
+  let path = window.location.pathname;
+
+  const base = "/tiae24-frontend";
+  if (path.startsWith(base)) {
+    path = path.slice(base.length);
+  }
 
   let page = null;
 
@@ -24,7 +30,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <nav>
-          <a href="/">All Posts</a> | <a href="/create">Create Post</a>
+          <a href={`${base}/`}>All Posts</a> | <a href={`${base}/create`}>Create Post</a>
         </nav>
       </header>
 

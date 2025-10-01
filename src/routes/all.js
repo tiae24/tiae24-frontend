@@ -32,7 +32,7 @@ function All() {
         const post = data[i];
         result.push(
             <li key={post._id}>
-                <a href={`/update/${post._id}`}><strong>{post.title}</strong>: {post.content}</a>
+                <a href={`./update/${post._id}`}><strong>{post.title}</strong>: {post.content}</a>
             </li>
         );
     }

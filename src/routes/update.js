@@ -6,7 +6,7 @@ function Update() {
 
     const path = window.location.pathname;
     const parts = path.split('/');
-    const postId = parts[2];
+    const postId = parts[3];
     const id  = postId
 
     console.log(postId);
