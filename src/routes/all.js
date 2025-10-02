@@ -40,7 +40,7 @@ function All() {
         const post = data[i];
         result.push(
             <li key={post._id}>
-                <a href={`${base}/update/${post._id}`}><strong>{post.title}</strong>: {post.content}</a>
+                <a href={`/tiae24-frontend/update/${post._id}`}><strong>{post.title}</strong>: {post.content}</a>
             </li>
         );
     }
