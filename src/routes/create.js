@@ -1,6 +1,14 @@
 import { useState } from 'react';
 
 function Create() {
+
+    let path = window.location.pathname;
+
+    const base = "/tiae24-frontend";
+    if (path.startsWith(base)) {
+        path = path.slice(base.length);
+    }
+
     const [title, setTitle] = useState("");
     const [content, setContent] = useState("");
 

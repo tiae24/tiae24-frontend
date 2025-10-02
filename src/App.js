@@ -22,8 +22,8 @@ function App() {
 
         <main>
           <Routes>
-            <Route path="/" element={<All />} />
-            <Route path="/create" element={<Create />} />
+            <Route path="/" element={<Create />} />
+            <Route path="/create" element={<All />} />
             <Route path="/update/:id" element={<Update />} />
           </Routes>
         </main>
