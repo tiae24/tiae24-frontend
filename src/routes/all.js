@@ -13,10 +13,14 @@ function All() {
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(true);
 
+    const api = 'https://jsramverk-tiae24-b7ehgnarare5h5dg.northeurope-01.azurewebsites.net/posts';
+
     useEffect(() => {
         const fetchDocument = async () => {
             try {
-                const response = await fetch('https://jsramverk-tiae24-b7ehgnarare5h5dg.northeurope-01.azurewebsites.net/posts');
+                const response = await fetch(
+                    api
+                );
 
                 if (!response.ok) {
                     throw new Error('Network response was not ok');

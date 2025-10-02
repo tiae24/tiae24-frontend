@@ -12,11 +12,13 @@ function Create() {
     const [title, setTitle] = useState("");
     const [content, setContent] = useState("");
 
+    const api = 'https://jsramverk-tiae24-b7ehgnarare5h5dg.northeurope-01.azurewebsites.net/create';
+
     const submit = async (e) => {
         e.preventDefault();
 
         try {
-            const res = await fetch('https://jsramverk-tiae24-b7ehgnarare5h5dg.northeurope-01.azurewebsites.net/create', {
+            const res = await fetch(api, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
