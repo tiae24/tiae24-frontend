@@ -20,7 +20,6 @@ function Update() {
             console.log(data);
         };
 
-    
         fetchPost();
     }, [id]);
 
