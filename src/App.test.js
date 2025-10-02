@@ -1,16 +1,24 @@
 import { render, screen } from '@testing-library/react';
-import App from './App';
-import '@testing-library/jest-dom';
+import App from './App.js';
+
+
+beforeEach(() => {
+    window.history.pushState({}, 'Test', '/tiae24-frontend');
+});
+
 
 test('renders navigation links', () => {
-  render(<App />);
-  const mainLinks = screen.getByText(/all posts/i);
-  expect(mainLinks).toBeInTheDocument();
-  expect(mainLinks).toHaveAttribute('href', '/');
+    render(<App />);
 
-  const createLinks = screen.getByText(/create post/i);
-  expect(createLinks).toBeInTheDocument();
-  expect(createLinks).toHaveAttribute('href', '/create');
+    const mainLinks = screen.getByText(/All Posts/i);
+
+    expect(mainLinks).toBeInTheDocument();
+    expect(mainLinks).toHaveAttribute('href', '/tiae24-frontend');
+
+    const createLinks = screen.getByText(/Create Post/i);
+
+    expect(createLinks).toBeInTheDocument();
+    expect(createLinks).toHaveAttribute('href', '/tiae24-frontend/create');
 });
 
 

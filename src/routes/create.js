@@ -1,10 +1,10 @@
 import { useState } from 'react';
 
 function Create() {
-
     let path = window.location.pathname;
 
     const base = "/tiae24-frontend";
+
     if (path.startsWith(base)) {
         path = path.slice(base.length);
     }
@@ -25,40 +25,39 @@ function Create() {
                 }),
             });
 
-            if (!res.ok) throw new Error('Failed Update');
+            if (!res.ok) {throw new Error('Failed Update');}
             alert('Post updated!');
         } catch (err) {
             alert('Error: ' + err.message);
         }
-
-};
+    };
 
     return (
         <>
             <div>
-            <h2>Create</h2>
-            <form onSubmit={submit} className="new-doc">
-                <label htmlFor="title">Titel</label>
-                <input
-                    type="text"
-                    name="title"
-                    id="title"
-                    value={title}
-                    onChange={(e) => setTitle(e.target.value)}
-                />
+                <h2>Create</h2>
+                <form onSubmit={submit} className="new-doc">
+                    <label htmlFor="title">Titel</label>
+                    <input
+                        type="text"
+                        name="title"
+                        id="title"
+                        value={title}
+                        onChange={(e) => setTitle(e.target.value)}
+                    />
 
-                <label htmlFor="content">Innehåll</label>
-                <textarea
-                    name="content"
-                    id="content"
-                    value={content}
-                    onChange={(e) => setContent(e.target.value)}
-                ></textarea>
+                    <label htmlFor="content">Innehåll</label>
+                    <textarea
+                        name="content"
+                        id="content"
+                        value={content}
+                        onChange={(e) => setContent(e.target.value)}
+                    ></textarea>
 
-                <input type="submit" value="Skapa" />
-            </form>
+                    <input type="submit" value="Skapa" />
+                </form>
 
-        </div>
+            </div>
         </>
     );
 }

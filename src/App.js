@@ -8,28 +8,30 @@ import Update from './routes/update.js';
 
 
 function App() {
-  return (
-    <BrowserRouter basename="/tiae24-frontend">
+    return (
+        <BrowserRouter basename="/tiae24-frontend">
 
-      <div className="App">
-        <header className="App-header">
+            <div className="App">
+                <header className="App-header">
 
-          <nav>
-            <Link to="/">All Posts</Link> | <Link to="/create">Create Post</Link>
-          </nav>
+                    <nav>
+                        <Link to="/">All Posts</Link>
+            |
+                        <Link to="/create">Create Post</Link>
+                    </nav>
 
-        </header>
+                </header>
 
-        <main>
-          <Routes>
-            <Route path="/" element={<All />} />
-            <Route path="/create" element={<Create />} />
-            <Route path="/update/:id" element={<Update />} />
-          </Routes>
-        </main>
-      </div>
-    </BrowserRouter>
-  );
+                <main>
+                    <Routes>
+                        <Route path="/" element={<All />} />
+                        <Route path="/create" element={<Create />} />
+                        <Route path="/update/:id" element={<Update />} />
+                    </Routes>
+                </main>
+            </div>
+        </BrowserRouter>
+    );
 }
 
 
