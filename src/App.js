@@ -18,9 +18,9 @@ function App() {
 
   if (path === "/") {
     page = <All/>;
-  } else if (path === "/create") {
+  } else if (path === "tiae24-frontend/create") {
     page = <Create/>;
-  } else if (path.startsWith("/update/")) {
+  } else if (path.startsWith("tiae24-frontend/update/")) {
     page = <Update/>;
   } else {
     page = <div>404 - Page not found</div>;
