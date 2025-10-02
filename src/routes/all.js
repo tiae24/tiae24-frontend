@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 
 function All() {
 
@@ -40,9 +41,11 @@ function All() {
         const post = data[i];
         result.push(
             <li key={post._id}>
-                <a href={`/tiae24-frontend/update/${post._id}`}><strong>{post.title}</strong>: {post.content}</a>
+                <Link to={`/update/${post._id}`}>
+                <strong>{post.title}</strong>: {post.content}
+                </Link>
             </li>
-        );
+            );
     }
 
     return (
