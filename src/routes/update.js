@@ -5,6 +5,7 @@ import { useState, useEffect } from 'react';
 function Update() {
     const [title, setTitle] = useState("");
     const [content, setContent] = useState("");
+    const [allowed_users, setAllowed_users] = useState("");
 
     const path = window.location.pathname;
     const parts = path.split('/');
@@ -13,12 +14,27 @@ function Update() {
 
     console.log(postId);
 
+    let token = localStorage.getItem("jwt");
+
+
     useEffect(() => {
         const fetchPost = async () => {
-            const res = await fetch(`https://jsramverk-tiae24-b7ehgnarare5h5dg.northeurope-01.azurewebsites.net/${id}`);
+            const res = await fetch('https://jsramverk-tiae24-b7ehgnarare5h5dg.northeurope-01.azurewebsites.net/graphql', {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json',
+                'x-access-token': token,
+            },
+            body: JSON.stringify({
+                query: `{ document(_id: \"${id}\") { _id title content allowed_users } }`
+            })
+
+        });
             const data = await res.json();
-            setTitle(data.doc.title);
-            setContent(data.doc.content);
+            setTitle(data.data.document.title);
+            setContent(data.data.document.content);
+            setAllowed_users(data.data.document.allowed_users);
             console.log(data);
         };
 
@@ -35,7 +51,8 @@ function Update() {
                 body: JSON.stringify({
                     id,
                     title,
-                    content
+                    content,
+                    allowed_users: allowed_users
                 }),
             });
 

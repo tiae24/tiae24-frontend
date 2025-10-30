@@ -14,17 +14,19 @@ function Create() {
 
     const api = 'https://jsramverk-tiae24-b7ehgnarare5h5dg.northeurope-01.azurewebsites.net/create';
 
+    let token = localStorage.getItem("jwt");
+
     const submit = async (e) => {
         e.preventDefault();
 
         try {
             const res = await fetch(api, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    title,
-                    content
-                }),
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "x-access-token": token
+                },
+                body: JSON.stringify({ title, content })
             });
 
             if (!res.ok) {throw new Error('Failed Update');}

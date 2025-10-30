@@ -4,6 +4,7 @@
   "private": true,
   "homepage": "https://dbwebb-jsramverk.github.io/tiae24-frontend",
   "dependencies": {
+    "codemirror": "^6.0.2",
     "cra-template": "1.3.0",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",

@@ -13,21 +13,35 @@ function All() {
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(true);
 
-    const api = 'https://jsramverk-tiae24-b7ehgnarare5h5dg.northeurope-01.azurewebsites.net/posts';
+    const api ='https://jsramverk-tiae24-b7ehgnarare5h5dg.northeurope-01.azurewebsites.net/graphql';
+
+    let token = localStorage.getItem("jwt");
+
+    console.log(token);
 
     useEffect(() => {
         const fetchDocument = async () => {
             try {
-                const response = await fetch(
-                    api
-                );
+                const response = await fetch(api, {
+                    method: "POST",
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json',
+                        'x-access-token': token,
+                    },
+                    body: JSON.stringify({
+                        query: "{ accountDocument { _id title content allowed_users } }"
+                    })
+
+                });
 
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
                 }
+
                 const result = await response.json();
 
-                setData(result.data || []);
+                setData(result.data.accountDocument || []);
             } catch (error) {
                 console.error('Error', error);
             } finally {
@@ -51,6 +65,9 @@ function All() {
             <li key={post._id}>
                 <Link to={`/update/${post._id}`}>
                     <strong>{post.title}</strong>: {post.content}
+                </Link>
+                <Link to={`/invite/${post._id}`}>
+                    <strong style={{ paddingLeft: '25' }}>Invite</strong>
                 </Link>
             </li>
         );
