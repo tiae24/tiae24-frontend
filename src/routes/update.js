@@ -86,7 +86,7 @@ function Update() {
                     onChange={(e) => setContent(e.target.value)}
                 ></textarea>
 
-                <input type="submit" value="Skapa" />
+                <input type="submit" value="Uppdatera" />
             </form>
 
         </div>
