@@ -91,8 +91,25 @@ ul {
 li {
   border: 1px solid black;
   padding: 10px;
+  color: blue;
 }
 
-li:nth-child(even) {
+.outer-li:nth-child(even) {
   background-color: whitesmoke;
+}
+
+
+.outer-li li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.outer-li li a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.inner-div strong {
+  color: blue;
 }

@@ -62,14 +62,18 @@ function All() {
         const post = data[i];
 
         result.push(
-            <li key={post._id}>
-                <Link to={`/update/${post._id}`}>
-                    <strong>{post.title}</strong>: {post.content}
-                </Link>
-                <Link to={`/invite/${post._id}`}>
-                    <strong style={{ paddingLeft: '25' }}>Invite</strong>
-                </Link>
-            </li>
+            <div class="outer-li">
+                <li key={post._id}>
+                    <Link to={`/update/${post._id}`}>
+                        <strong>{post.title}</strong>: {post.content}
+                    </Link>
+                    <Link to={`/invite/${post._id}`}>
+                        <div class="inner-div">
+                            <strong>Invite</strong>
+                        </div>
+                    </Link>
+                </li>
+            </div>
         );
     }
 
